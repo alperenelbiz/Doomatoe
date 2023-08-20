@@ -23,10 +23,19 @@ public class PlayerMovement : MonoBehaviour
     public float crouchYScale;
     private float startYScale;
 
+    [Header("Dash")]
+    public float dashForce;
+    public float dashDuration;
+    public float dashCooldown;
+    private bool dashing;
+    private float dashEndTime;
+    private float nextDashTime;
+
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
     public KeyCode sprintKey = KeyCode.LeftShift;
     public KeyCode crouchKey = KeyCode.LeftControl;
+    public KeyCode dashKey = KeyCode.LeftAlt;
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -81,6 +90,14 @@ public class PlayerMovement : MonoBehaviour
             rb.drag = groundDrag;
         else
             rb.drag = 0;
+
+        // handle dash input
+        if (Input.GetKeyDown(dashKey) && !dashing && Time.time >= nextDashTime && grounded)
+        {
+            dashing = true;
+            dashEndTime = Time.time + dashDuration;
+            nextDashTime = Time.time + dashCooldown;
+        }
     }
 
     private void FixedUpdate()
@@ -114,6 +131,14 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyUp(crouchKey))
         {
             transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
+        }
+
+        // handle dash input
+        if (Input.GetKeyDown(dashKey) && !dashing && Time.time >= nextDashTime && grounded)
+        {
+            dashing = true;
+            dashEndTime = Time.time + dashDuration;
+            nextDashTime = Time.time + dashCooldown;
         }
     }
 
@@ -152,6 +177,24 @@ public class PlayerMovement : MonoBehaviour
         // calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
+        // apply dash force if dashing
+        if (dashing && Time.time < dashEndTime)
+        {
+            rb.AddForce(moveDirection.normalized * dashForce, ForceMode.Impulse);
+        }
+
+        // turn off dash after duration
+        if (Time.time >= dashEndTime)
+        {
+            dashing = false;
+        }
+
+        // reset dashing if dash cooldown is over
+        if (Time.time >= nextDashTime)
+        {
+            dashing = false;
+        }
+
         // on slope
         if (OnSlope() && !exitingSlope)
         {
@@ -183,7 +226,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // limiting speed on ground or in air
-        else
+        else if (!dashing)  // This condition prevents speed limiting during dash
         {
             Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
