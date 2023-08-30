@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 81e175ba6af0e504581006c03ed2809c, type: 2}
+--- !u!54 &295532091 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 8260078863588669062, guid: 477de9e068e82564c894207f1db6eb27, type: 3}
+  m_PrefabInstance: {fileID: 8260078862600646006}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,6 +222,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!4 &1240001434 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8309165659800257157, guid: 477de9e068e82564c894207f1db6eb27, type: 3}
+  m_PrefabInstance: {fileID: 8260078862600646006}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &1333244825 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 8260078861953204229, guid: 477de9e068e82564c894207f1db6eb27, type: 3}
+  m_PrefabInstance: {fileID: 8260078862600646006}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7536146565156629467
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -286,14 +301,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2488974021835006394, guid: 477de9e068e82564c894207f1db6eb27, type: 3}
-      propertyPath: shootForce
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 2488974021835006394, guid: 477de9e068e82564c894207f1db6eb27, type: 3}
-      propertyPath: upwardForce
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 8260078863588669080, guid: 477de9e068e82564c894207f1db6eb27, type: 3}
       propertyPath: m_Name
       value: Player
@@ -342,10 +349,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9126277375691669594, guid: 477de9e068e82564c894207f1db6eb27, type: 3}
+      propertyPath: playerRb
+      value: 
+      objectReference: {fileID: 295532091}
+    - target: {fileID: 9126277375691669594, guid: 477de9e068e82564c894207f1db6eb27, type: 3}
+      propertyPath: attackPoint
+      value: 
+      objectReference: {fileID: 1240001434}
+    - target: {fileID: 9126277375691669594, guid: 477de9e068e82564c894207f1db6eb27, type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 1333244825}
     m_RemovedComponents: []
     m_RemovedGameObjects:
-    - {fileID: 1617757776010147490, guid: 477de9e068e82564c894207f1db6eb27, type: 3}
-    - {fileID: 8292182185403321814, guid: 477de9e068e82564c894207f1db6eb27, type: 3}
+    - {fileID: 9130849929730773744, guid: 477de9e068e82564c894207f1db6eb27, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 477de9e068e82564c894207f1db6eb27, type: 3}

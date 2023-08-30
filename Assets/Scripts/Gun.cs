@@ -12,10 +12,14 @@ public class Gun : MonoBehaviour
     public KeyCode reloadButton = KeyCode.R;
 
     [Header("Bullet Force")]
-    public float shootForce, upwardForce;
+    public float shootForce;
+    public float upwardForce;
 
     [Header("Gun Stats")]
-    public float timeBetweenShooting, spread, reloadTime, timeBetweenShots;
+    public float timeBetweenShooting;
+    public float spread;
+    public float reloadTime;
+    public float timeBetweenShots;
     public int magazineSize, bulletsPerTap;
     public bool allowButtonHold;
 
@@ -25,7 +29,9 @@ public class Gun : MonoBehaviour
 
     int bulletsLeft, bulletsShot;
 
-    bool shooting, readyToShoot, reloading;
+    bool shooting;
+    bool readyToShoot;
+    bool reloading;
 
     [Header("References")]
     public Camera playerCamera;
