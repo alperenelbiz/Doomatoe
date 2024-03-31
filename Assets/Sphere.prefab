@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4716017930656793945}
   - component: {fileID: 7956178941591421229}
   - component: {fileID: 7403587032087552635}
+  - component: {fileID: -1779794652617989070}
   m_Layer: 8
   m_Name: Sphere
   m_TagString: Bullet
@@ -101,7 +102,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -141,7 +142,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 694825571575601229}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3abea6b8f2381b5429b0292543779009, type: 3}
   m_Name: 
@@ -159,3 +160,17 @@ MonoBehaviour:
   maxCollisions: 10
   maxLifetime: 4
   explodeOnTouch: 1
+--- !u!114 &-1779794652617989070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694825571575601229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 074ac253946d3694d8dde161f9a9f634, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 3
+  ammoDamage: 20

@@ -336,6 +336,7 @@ GameObject:
   - component: {fileID: 8260078863588669081}
   - component: {fileID: 8260078863588669062}
   - component: {fileID: 8260078863588669063}
+  - component: {fileID: 6715243581960509521}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -387,7 +388,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 1
 --- !u!114 &8260078863588669063
 MonoBehaviour:
@@ -396,7 +397,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8260078863588669080}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6509ea74041a2d448ed0c1b2793483f, type: 3}
   m_Name: 
@@ -423,6 +424,27 @@ MonoBehaviour:
   maxSlopeAngle: 40
   orientation: {fileID: 8260078862522337556}
   state: 0
+--- !u!114 &6715243581960509521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8260078863588669080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 372823c677fc3504287f6740ce7d7f3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  jumpForce: 5
+  dashSpeed: 10
+  dashDuration: 0.5
+  dashCooldown: 2
+  slopeForce: 0
+  slopeForceRayLength: 0
+  orientation: {fileID: 8260078862522337556}
+  rb: {fileID: 8260078863588669062}
 --- !u!1 &8292182185403321814
 GameObject:
   m_ObjectHideFlags: 0

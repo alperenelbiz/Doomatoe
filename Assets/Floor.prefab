@@ -457,7 +457,7 @@ Transform:
   - {fileID: 2308080931865873399}
   - {fileID: 4235628710645492162}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7120245777859666162
 GameObject:
@@ -578,7 +578,7 @@ GameObject:
   - component: {fileID: 7361428926480471847}
   m_Layer: 3
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
