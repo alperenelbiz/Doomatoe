@@ -6,26 +6,27 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
     public NavMeshAgent agent;
-
+    public bool isRanged;
     public Transform player;
 
     public LayerMask whatIsGround, whatIsPlayer;
 
     public float health;
 
-    //Patroling
+
     public Vector3 walkPoint;
     bool walkPointSet;
     public float walkPointRange;
 
-    //Attacking
+
     public float timeBetweenAttacks;
     bool alreadyAttacked;
     public GameObject projectile;
 
-    //States
+
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
+
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
@@ -34,7 +35,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
-        //Check for sight and attack range
+
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
@@ -52,13 +53,11 @@ public class EnemyAI : MonoBehaviour
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
-        //Walkpoint reached
         if (distanceToWalkPoint.magnitude < 1f)
             walkPointSet = false;
     }
     private void SearchWalkPoint()
     {
-        //Calculate random point in range
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
         float randomX = Random.Range(-walkPointRange, walkPointRange);
 
@@ -75,7 +74,6 @@ public class EnemyAI : MonoBehaviour
 
     private void AttackPlayer()
     {
-        //Make sure enemy doesn't move
         agent.SetDestination(transform.position);
 
         Vector3 playerPosition = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
@@ -84,11 +82,20 @@ public class EnemyAI : MonoBehaviour
 
         if (!alreadyAttacked)
         {
-            ///Attack code here
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 8f, ForceMode.Impulse);
-            ///End of attack code
+            if (isRanged)
+            {
+
+                Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+                rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
+                rb.AddForce(transform.up * 8f, ForceMode.Impulse);
+                // _animator.SetBool("Attack", true);
+            }
+            else if (!isRanged)
+            {
+                //_animator.SetBool("Attack", true);
+                //playerHealth.takeDamage(attackDamage);
+            }
+
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
@@ -99,22 +106,22 @@ public class EnemyAI : MonoBehaviour
         alreadyAttacked = false;
     }
 
-    public void TakeDamage(int damage)
-    {
-        health -= damage;
+    /*  public void TakeDamage(int damage)
+      {
+          health -= damage;
 
-        if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
-    }
-    private void DestroyEnemy()
-    {
-        Destroy(gameObject);
-    }
+          if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
+      }
+      private void DestroyEnemy()
+      {
+          Destroy(gameObject);
+      }
 
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, sightRange);
-    }
+      private void OnDrawGizmosSelected()
+      {
+          Gizmos.color = Color.red;
+          Gizmos.DrawWireSphere(transform.position, attackRange);
+          Gizmos.color = Color.yellow;
+          Gizmos.DrawWireSphere(transform.position, sightRange);
+      }*/
 }
