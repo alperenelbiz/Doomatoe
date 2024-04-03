@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class EventSystem : MonoBehaviour
 {
+    public static EventSystem instance;
+    
     public Transform playerPos;
     public float spawnRadius = 15f;
     public float minDistance = 5f;
@@ -20,6 +22,7 @@ public class EventSystem : MonoBehaviour
 
     void Start()
     {
+        instance = this;
         // for (int i = 0; i < 20; i++)
         // {
         //     GameObject enemy = Instantiate(Enemies[0]);
@@ -75,7 +78,7 @@ public class EventSystem : MonoBehaviour
         // enemy.SetActive(true);
         //
         // pooledEnemies.RemoveAt(0);
-        Enemies.Add(enemy);
+        ActiveEnemies.Add(enemy);
         enemyCount++;
     }
 
