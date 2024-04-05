@@ -174,6 +174,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
+        // Apply speed boost
+        moveSpeed *= BoostManager.instance.currentSpeedBoost;
+        
         // calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
