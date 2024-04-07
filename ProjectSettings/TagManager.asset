@@ -7,8 +7,10 @@ TagManager:
   - Enemy
   - Bullet
   - Platform Surface
+
   - SpeedBoost
   - Zipline
+
   layers:
   - Default
   - TransparentFX

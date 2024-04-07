@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3144887950881220147}
   - component: {fileID: 7469179575228883547}
   - component: {fileID: 273068220212443797}
-  - component: {fileID: 4354478669667328550}
+  - component: {fileID: -3277201845910371060}
   m_Layer: 0
   m_Name: Gun 1
   m_TagString: Untagged
@@ -106,7 +106,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4354478669667328550
+--- !u!114 &-3277201845910371060
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,23 +115,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 2045291668685576938}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d22d001cff2352047a4bc8be69d404ae, type: 3}
+  m_Script: {fileID: 11500000, guid: f2d8650fa48f08346bcb52168da3d669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 694825571575601229, guid: 5324353d11c37c2458d8c247aac9e606, type: 3}
-  shootButton: 323
-  reloadButton: 114
-  shootForce: 18.47
-  upwardForce: 0
-  timeBetweenShooting: 0.1
-  spread: 0.33
-  reloadTime: 0.84
-  timeBetweenShots: 0.26
-  magazineSize: 22
+  damage: 20
+  timeBetweenShooting: 0.05
+  spread: 0.02
+  range: 100
+  reloadTime: 1
+  timeBetweenShots: 0
+  magazineSize: 30
   bulletsPerTap: 1
   allowButtonHold: 1
-  playerRb: {fileID: 0}
-  recoilForce: 0
-  playerCamera: {fileID: 0}
-  attackPoint: {fileID: 0}
-  allowInvoke: 1
+  fpsCam: {fileID: 0}
+  whatIsEnemy:
+    serializedVersion: 2
+    m_Bits: 0
