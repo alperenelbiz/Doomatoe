@@ -7,7 +7,10 @@ TagManager:
   - Enemy
   - Bullet
   - Platform Surface
-  - Ground
+
+  - SpeedBoost
+  - Zipline
+
   layers:
   - Default
   - TransparentFX
@@ -18,7 +21,7 @@ TagManager:
   - Wall
   - Player
   - Bullet
-  - 
+  - Zipline
   - 
   - 
   - 
