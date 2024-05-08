@@ -7,21 +7,19 @@ TagManager:
   - Enemy
   - Bullet
   - Platform Surface
-
   - SpeedBoost
-  - Zipline
-
+  - Ground
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Floor
+  - 
   - Water
   - UI
-  - Wall
-  - Player
-  - Bullet
-  - Zipline
+  - Ground
+  - 
+  - 
+  - 
   - 
   - 
   - 
